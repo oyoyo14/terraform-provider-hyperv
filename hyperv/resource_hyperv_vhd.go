@@ -17,7 +17,9 @@ func resourceHyperVVhd() *schema.Resource {
 		Read:   resourceHyperVVhdRead,
 		Update: resourceHyperVVhdUpdate,
 		Delete: resourceHyperVVhdDelete,
-
+		Importer: &schema.ResourceImporter{
+      				StateContext: schema.ImportStatePassthroughContext,
+		          },
 		Schema: map[string]*schema.Schema{
 			"path": {
 				Type:     schema.TypeString,
