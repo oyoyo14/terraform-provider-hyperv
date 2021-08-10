@@ -129,7 +129,7 @@ func customizeDiffForVhd(ctx context.Context, diff *schema.ResourceDiff, i inter
 	if _, err := os.Stat(path); err != nil {
 		if os.IsNotExist(err) {
 			// file does not exist
-			diff.SetNewComputed("exists")
+			diff.SetNew("exists", false)
 			return nil
 		} else {
 			// other error
